@@ -65,7 +65,12 @@ async function sendMoney(destinationAddress: string, fundingWallet: WalletContra
     ]
   });
 
-  await waitForTransaction(seqno, walletContract);
+  if (process.env.SENT_DELAY) {
+    await sleep(Number(process.env.SENT_DELAY) * 1000);
+  } else {
+    await waitForTransaction(seqno, walletContract);
+  }
+
   console.log(`Sent ${sendValue} TON to: `, destinationAddress);
 }
 
