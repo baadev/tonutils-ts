@@ -16,6 +16,7 @@
   },
   "scripts": {
     "gen": "ts-node ./wallet_gen/multi_wallet_gen.ts",
-    "popup": "ts-node ./wallet_popup/multi_wallet_popup_ton.ts"
+    "popup": "ts-node ./wallet_popup/multi_wallet_popup_ton.ts",
+    "multisend": "ts-node ./wallet_multisend/wallet_multisend.ts"
   }
 }
