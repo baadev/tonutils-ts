@@ -15,7 +15,7 @@ let createLiteClient: Promise<void>
 const receiver: string = process.env.RECEIVER_ADDRESS || "";
 
 // The amount of TON to be sent to each wallet
-const sendValue: string = process.env.SENT_AMOUNT || "0.05";
+const sendValue: string = process.env.SENT_AMOUNT || "0.06";
 
 /**
  * Entry point of the script.
