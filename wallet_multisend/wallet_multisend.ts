@@ -53,17 +53,22 @@ async function sendMoney(destinationAddress: string, fundingWallet: WalletContra
   const walletContract = client.open(fundingWallet);
   const seqno = await walletContract.getSeqno();
 
-  await walletContract.sendTransfer({
-    secretKey: fundingKey.secretKey,
-    seqno: seqno,
-    messages: [
-      internal({
-        to: destinationAddress,
-        value: sendValue,
-        bounce: false,
-      })
-    ]
-  });
+  try {
+    await walletContract.sendTransfer({
+      secretKey: fundingKey.secretKey,
+      seqno: seqno,
+      messages: [
+        internal({
+          to: destinationAddress,
+          value: sendValue,
+          bounce: false,
+        })
+      ]
+    });
+  } catch (e) {
+    console.log("Error sending transaction: ", e);
+    return;
+  }
 
   if (process.env.SENT_DELAY) {
     await sleep(Number(process.env.SENT_DELAY) * 1000);
