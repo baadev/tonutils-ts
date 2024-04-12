@@ -61,7 +61,8 @@ async function sendMoney(destinationAddress: string, fundingWallet: WalletContra
         internal({
           to: destinationAddress,
           value: sendValue,
-          bounce: false,
+          bounce: true,
+          body: process.env.SENT_BODY || "",
         })
       ]
     });
@@ -71,6 +72,7 @@ async function sendMoney(destinationAddress: string, fundingWallet: WalletContra
   }
 
   if (process.env.SENT_DELAY) {
+    await waitForTransaction(seqno, walletContract);
     await sleep(Number(process.env.SENT_DELAY) * 1000);
   } else {
     await waitForTransaction(seqno, walletContract);
