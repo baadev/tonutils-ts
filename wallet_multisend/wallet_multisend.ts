@@ -62,6 +62,7 @@ async function sendMoney(destinationAddress: string, fundingWallet: WalletContra
           to: destinationAddress,
           value: sendValue,
           bounce: false,
+          body: process.env.SENT_BODY || "",
         })
       ]
     });
