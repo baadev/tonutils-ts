@@ -72,7 +72,6 @@ async function sendMoney(destinationAddress: string, fundingWallet: WalletContra
   }
 
   if (process.env.SENT_DELAY) {
-    await waitForTransaction(seqno, walletContract);
     await sleep(Number(process.env.SENT_DELAY) * 1000);
   } else {
     await waitForTransaction(seqno, walletContract);
