@@ -1,7 +1,7 @@
 
 # TonUtils
 
-![](https://github.com/baadev/TonUtils/blob/main/assets/TonUtils.png?raw=true)
+<img src="https://github.com/baadev/TonUtils/blob/main/assets/TonUtils.png?raw=true" width=500 />
 
 ![Stars](https://img.shields.io/github/stars/baadev/TonUtils?style=plastic)
 ![Licence](https://img.shields.io/github/license/baadev/TonUtils)
