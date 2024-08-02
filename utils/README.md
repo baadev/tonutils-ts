@@ -78,7 +78,7 @@ A collection of utility modules designed to interact with and manipulate data re
     </tr>
 </table>
 
-### Module `create.wallet`
+### Module `wallet`
 
 <table>
     <tr>
@@ -113,7 +113,7 @@ A collection of utility modules designed to interact with and manipulate data re
 #### Example as cmd tool
 
 ```bash
-npx ts-node ./utils/mnemonic.to.public.ts -m 'abandon ability able about above absent absorb abstract absurd abuse access accident account accuse achieve acid acoustic acquire across act action actor actress actual adapt'
+npx ts-node ./utils/public.address.utils.ts -m 'abandon ability able about above absent absorb abstract absurd abuse access accident account accuse achieve acid acoustic acquire across act action actor actress actual adapt'
 
 # Output:
 Bounceable:  EQBDyloUvY25siQu-6XzJ4M7bBWUwUxGQ7BRC7oOB0R1JQ3Y

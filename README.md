@@ -114,7 +114,7 @@ npm install
     </tr>
 </table>
 
-#### Module `create.wallet`
+#### Module `wallet`
 
 <table>
     <tr>
