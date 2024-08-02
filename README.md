@@ -1,6 +1,12 @@
 
 # TonUtils
 
+![](https://github.com/baadev/TonUtils/blob/main/assets/TonUtils.png?raw=true)
+
+![Stars](https://img.shields.io/github/stars/baadev/TonUtils?style=plastic)
+![Licence](https://img.shields.io/github/license/baadev/TonUtils)
+![Issues](https://img.shields.io/github/issues/baadev/TonUtils)
+
 ## About
 
 TonUtils is a toolkit designed to enhance the development and manipulation with the TON (The Open Network) blockchain. 
