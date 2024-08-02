@@ -3,12 +3,15 @@
 
 ## About
 
-TonUtils is a comprehensive toolkit designed to enhance the development and interaction with the TON (The Open Network) blockchain. It provides developers with a suite of tools and utilities to streamline their workflows, optimize smart contract development, and facilitate easier interaction with the TON blockchain.
+TonUtils is a toolkit designed to enhance the development and manipulation with the TON (The Open Network) blockchain. 
+
+It provides with a suite of tools and utilities to streamline workflows, optimize development, and facilitate easier interaction with the TON blockchain.
 
 ## Features
 
-- **Wallet Management**: Efficiently manage wallets, including key generation, balance checking, and transaction history.
-- **Transaction Crafting**: Create, sign, and send transactions with ease.
+- **Mnemonic to public key convertion**
+- **Wallet Creation**
+- **Transaction Crafting**
 
 ## Getting Started
 
@@ -30,13 +33,72 @@ npm install
 
 ## Usage
 
+### Mnemonic to Public Key
+
+The `utils/mnemonic.to.public.ts` script converts a mnemonic phrase to a public key.
+
+#### Example as JS/TS module
+
+```typescript
+import { getPublicAddressByMnenomic } from './/mnemonic.to.public';
+
+// Example mnemonic phrase
+const mnemonic = [
+    "abandon", "abandon", "abandon", "abandon", "abandon", 
+    "abandon", "abandon", "abandon", "abandon", "abandon", 
+    "abandon", "abandon", "abandon", "abandon", "abandon", 
+    "abandon", "abandon", "abandon", "abandon", "abandon", 
+    "abandon", "abandon", "abandon", "abandon"
+];
+
+// Convert mnemonic to public key
+(async () => {
+    const publicKey = await getPublicAddressByMnenomic(mnemonic);
+    console.log(`Public Key: ${publicKey}`);
+    /**
+     * Output:
+     *  Public Key: EQBLnk5fDPZB-bmiUcXLVQ9dgynYua_hm1K-nhPpLrt4F5BB
+     */
+})();
+```
+
+#### Example as cmd tool
+
+```console
+npx ts-node ./utils/mnemonic.to.public.ts -m 'abandon ability able about above absent absorb abstract absurd abuse access accident account accuse achieve acid acoustic acquire across act action actor actress actual adapt'
+
+# Output:
+Bounceable:  EQBDyloUvY25siQu-6XzJ4M7bBWUwUxGQ7BRC7oOB0R1JQ3Y
+Not Bounceable:  UQBDyloUvY25siQu-6XzJ4M7bBWUwUxGQ7BRC7oOB0R1JVAd
+```
+
+-----------
+### Wallet Management
+
+Wallet Management utility will allow you to generate specified amount of new wallets and send specified amount of TON in order to activate it in blockchain.
+
+
+#### Example of creating 3 activated wallets with balance of 0.01 using cmd
+Put your funding wallet mnemonic like showed below in your .env file   
+`FUNDING_SEED=one two three...` 
+
+After that run:
+```console
+npx ts-node ./wallet_gen/multi_wallet_gen.ts --wallets 3 --popup 0.01
+```
+#### Available arguments:
+| Argument    | Description                                 | Example       | 
+| ----------- | ---------------------------                 | -----------   | 
+| --wallets   | The number of wallets to be created         | --wallets 3   |
+| --popup     | The amount of TON to be sent to each wallet | --popup 0.01  | 
+
+
+For more information, please refer to the [README](./wallet_gen/README.md) file in the `wallet_gen` directory.
+
+-----------
 ### Transaction Crafting
 
 The `wallet_popup` directory contains a TypeScript script used for sending TON cryptocurrency from a funding wallet to a list of other wallets. For more details, please refer to the [README](./wallet_popup/README.md) file in the `wallet_popup` directory.
-
-### Wallet Management
-
-The `wallet_gen` directory contains scripts for generating new TON wallets. For more information, please refer to the [README](./wallet_gen/README.md) file in the `wallet_gen` directory.
 
 ## How to Contribute
 
