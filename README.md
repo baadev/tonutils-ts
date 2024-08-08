@@ -9,9 +9,11 @@
 
 ## About
 
-TonUtils is a toolkit designed to enhance the development and manipulation with the TON (The Open Network) blockchain. 
+TonUtils is a set of tools designed to enhance the development and operation with the TON (The Open Network) blockchain.
 
-It provides with a suite of tools and utilities to streamline workflows, optimize development, and facilitate easier interaction with the TON blockchain.
+A distinguishing idea of TonUtils is to maintain a minimal number of dependencies and external libraries, while also providing a flexible set of tools to increase the sustainability of your projects.
+
+Additionally, it aims to simplify workflows, optimize development, and facilitate interaction with the TON blockchain.
 
 ## Features
 
