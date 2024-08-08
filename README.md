@@ -150,7 +150,7 @@ npm install
 #### Example get public address by mnemonic as cmd tool
 
 ```console
-npx ts-node ./utils/public.address.utils.ts -m 'abandon ability able about above absent absorb abstract absurd abuse access accident account accuse achieve acid acoustic acquire across act action actor actress actual adapt'
+npx ts-node ./modules/public.address.utils.ts -m 'abandon ability able about above absent absorb abstract absurd abuse access accident account accuse achieve acid acoustic acquire across act action actor actress actual adapt'
 
 # Output:
 Bounceable:  EQBDyloUvY25siQu-6XzJ4M7bBWUwUxGQ7BRC7oOB0R1JQ3Y
