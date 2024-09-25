@@ -33,7 +33,7 @@ TON is the fastest blockchain, but high activity (such as major listings) can ca
 
 - **Minimal dependencies**: Simple tools for stable blockchain interaction.
 
-- **Alternative light servers**: Automatically connects to other servers when TonApi fails, keeping your project running smoothly.
+- **Alternative light servers**: Automatically connects to other servers when the current one fails, keeping your project running smoothly.
 
 - **Easy to use**: No need to spend weeks learning. TonUtils has ready-made solutions so you can start building right away.
 
