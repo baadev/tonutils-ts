@@ -29,7 +29,7 @@ Developing on the TON blockchain can be tough, especially when you are new to TO
 
 ### Why TonUtils?
 
-TON is the fastest blockchain, but high activity (like big listings) can cause common tools like TonApi to crash, leading to lost transactions and frustration. TonUtils helps solve these problems:
+TON is the fastest blockchain, but high activity (such as major listings) can cause endpoints like TonApi or Public Light Servers to go down, leading to failed transactions and frustration. TonUtils helps solve these problems:
 
 - **Minimal dependencies**: Simple tools for stable blockchain interaction.
 
