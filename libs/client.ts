@@ -3,11 +3,47 @@ import axios from "axios";
 
 import { LiteClient, LiteRoundRobinEngine, LiteSingleEngine } from "ton-lite-client";
 
+import { WalletContractV4 } from '@ton/ton';
+
 import { config } from '../config';
 
+type ClientManagerProvider = LiteClient;
+const enum ClientManagerProviders {
+    LiteServer = 0
+}
+
+/**
+ * Midleware class to unify API for several connections ways
+ */
+class Client {
+    clientManagerProvider: ClientManagerProvider
+    constructor (clientManagerProvider: ClientManagerProvider) {}
+
+    open(wallet: WalletContractV4) {
+        return this.clientManagerProvider.open(wallet);
+    }
+}
 export class ClientManager {
     lc: LiteClient | undefined = undefined
-    createLiteClient: Promise<void>
+    createLiteClient: Promise<void> | undefined = undefined;
+
+    /**
+     * Create a client connection, using specified provider.
+     * By default using Public Lite Servers
+     * 
+     * @todo add TonApi
+     * 
+     * @param providerId 
+     * @param props 
+     * @returns {ClientManagerProvider} client
+     */
+    connect = async (providerId?: ClientManagerProviders, ...props: any[]): Promise<Client> => {
+        switch (providerId) {
+            case ClientManagerProviders.LiteServer:
+            default:
+                return new Client(await this.getLiteClient(...props));
+        }
+    }
 
     /**
      * Retrieves the LiteClient instance.
