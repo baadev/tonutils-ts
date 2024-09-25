@@ -7,25 +7,50 @@
 ![Licence](https://img.shields.io/github/license/baadev/TonUtils)
 ![Issues](https://img.shields.io/github/issues/baadev/TonUtils)
 
+- [About](#about)
+  - [Why TonUtils?](#why-tonutils)
+  - [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Features Description](#features-description)
+  - [Public Address Utils](#public-address-utils)
+  - [Wallet Management](#wallet-management)
+  - [Transaction Crafting](#transaction-crafting)
+- [How to Contribute](#how-to-contribute)
+- [License](#license)
+- [Support](#support)
+
 ## About
 
-TonUtils is a set of tools designed to enhance the development and operation with the TON (The Open Network) blockchain.
+> Simplicity, Reliability, and Speed for Working with the TON Blockchain
 
-A distinguishing idea of TonUtils is to maintain a minimal number of dependencies and external libraries, while also providing a flexible set of tools to increase the sustainability of your projects.
+Developing on the TON blockchain can be tough, especially when you are new to TON. Suppose you are an NFT marketplace developer, trying to sell your collections, but you face confusing docs, random bugs, and unreliable APIs. Official tools often don't work well, making things even harder.
 
-Additionally, it aims to simplify workflows, optimize development, and facilitate interaction with the TON blockchain.
+### Why TonUtils?
 
-## Features
+TON is the fastest blockchain, but high activity (such as major listings) can cause endpoints like TonApi or Public Light Servers to go down, leading to failed transactions and frustration. TonUtils helps solve these problems:
 
-- **Public Address Utils**
-- **Wallet Creation**
-- **Transaction Crafting**
+- **Minimal dependencies**: Simple tools for stable blockchain interaction.
+
+- **Alternative light servers**: Automatically connects to other servers when the current one fails, keeping your project running smoothly.
+
+- **Easy to use**: No need to spend weeks learning. TonUtils has ready-made solutions so you can start building right away.
+
+Focus on your product, not on fighting with the blockchain.
+
+### Features
+
+- [**Public Address Utils**](#public-address-utils): Quickly validate and manage wallet addresses, reducing errors and saving time.
+- [**Wallet Creation**](#wallet-creation): Create secure wallets easily with simple code, no complex guides needed.
+- [**Transaction Crafting**](#transaction-crafting): Effortlessly craft and send transactions, focus on your project, not on blockchain complexity.
 
 ## Getting Started
 
 ### Prerequisites
 
 Before you begin, ensure you have installed:
+
 - Node.js (v16.x or later)
 - npm (v8.x or later)
 
@@ -148,7 +173,6 @@ npm install
     </tr>
 </table>
 
-
 #### Example get public address by mnemonic as cmd tool
 
 ```console
@@ -160,29 +184,33 @@ Not Bounceable:  UQBDyloUvY25siQu-6XzJ4M7bBWUwUxGQ7BRC7oOB0R1JVAd
 ```
 
 -----------
+
 ### Wallet Management
 
 Wallet Management utility will allow you to generate specified amount of new wallets and send specified amount of TON in order to activate it in blockchain.
 
-
 #### Example of creating 3 activated wallets with balance of 0.01 using cmd
-Put your funding wallet mnemonic like showed below in your .env file   
-`FUNDING_SEED=one two three...` 
+
+Put your funding wallet mnemonic like showed below in your .env file
+`FUNDING_SEED=one two three...`
 
 After that run:
+
 ```console
 npx ts-node ./wallet_gen/multi_wallet_gen.ts --wallets 3 --popup 0.01
 ```
-#### Available arguments:
-| Argument    | Description                                 | Example       | 
-| ----------- | ---------------------------                 | -----------   | 
-| --wallets   | The number of wallets to be created         | --wallets 3   |
-| --popup     | The amount of TON to be sent to each wallet | --popup 0.01  | 
 
+#### Available arguments
+
+| Argument    | Description                                 | Example       |
+| ----------- | ---------------------------                 | -----------   |
+| --wallets   | The number of wallets to be created         | --wallets 3   |
+| --popup     | The amount of TON to be sent to each wallet | --popup 0.01  |
 
 For more information, please refer to the [README](./wallet_gen/README.md) file in the `wallet_gen` directory.
 
 -----------
+
 ### Transaction Crafting
 
 The `wallet_popup` directory contains a TypeScript script used for sending TON cryptocurrency from a funding wallet to a list of other wallets. For more details, please refer to the [README](./wallet_popup/README.md) file in the `wallet_popup` directory.
