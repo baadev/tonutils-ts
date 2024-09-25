@@ -5,4 +5,4 @@ If you're interested in helping improve TonUtils, here are ways you can contribu
 - Suggesting Enhancements: Have ideas on how to make TonUtils better? [Open an issue](https://github.com/baadev/TonUtils/issues) with your suggestions.  
 - Pull Requests: Submit pull requests with bug fixes or new features. You might need to fork repo before opening PR.  
 
-Have a question or suggestion: ask in [discusiions](https://github.com/baadev/TonUtils/discussions)
+Have a question or suggestion: ask in [discussions](https://github.com/baadev/TonUtils/discussions)
