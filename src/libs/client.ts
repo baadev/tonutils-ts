@@ -5,7 +5,7 @@ import { LiteClient, LiteRoundRobinEngine, LiteSingleEngine } from "ton-lite-cli
 
 import { WalletContractV4 } from '@ton/ton';
 
-import { config } from '../config';
+import { config } from '../../config';
 
 type ClientManagerProvider = LiteClient;
 const enum ClientManagerProviders {
