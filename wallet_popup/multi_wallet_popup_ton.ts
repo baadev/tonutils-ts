@@ -1,9 +1,8 @@
 import fs from 'fs';
 import axios from "axios";
 
-import { getHttpEndpoint } from "@orbs-network/ton-access";
 import { mnemonicToWalletKey } from "@ton/crypto";
-import { TonClient, WalletContractV4, internal } from "@ton/ton";
+import { WalletContractV4, internal } from "@ton/ton";
 import { LiteClient, LiteSingleEngine, LiteRoundRobinEngine } from "ton-lite-client";
 
 require('dotenv').config();
