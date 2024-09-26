@@ -16,8 +16,10 @@ const enum ClientManagerProviders {
  * Midleware class to unify API for several connections ways
  */
 class Client {
-    clientManagerProvider: ClientManagerProvider
-    constructor (clientManagerProvider: ClientManagerProvider) {}
+    clientManagerProvider: ClientManagerProvider;
+    constructor (clientManagerProvider: ClientManagerProvider) {
+        this.clientManagerProvider = clientManagerProvider;
+    }
 
     open(wallet: WalletContractV4) {
         return this.clientManagerProvider.open(wallet);
