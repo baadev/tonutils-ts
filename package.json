@@ -18,27 +18,15 @@
     "url": "https://github.com/baadev/tonutils-ts/issues"
   },
   "homepage": "https://github.com/baadev/tonutils-ts#readme",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/**/*"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./address": {
-      "import": "./dist/address/index.js",
-      "require": "./dist/address/index.js",
-      "types": "./dist/address/index.d.ts"
-    },
-    "./wallet": {
-      "import": "./dist/wallet/index.js",
-      "require": "./dist/wallet/index.js",
-      "types": "./dist/wallet/index.d.ts"
-    }
+    ".": "./dist/index.js",
+    "./address": "./dist/address/index.js",
+    "./wallet": "./dist/wallet/index.js"
   },
   "scripts": {
     "build": "rm -fr dist && tsc --declaration",
