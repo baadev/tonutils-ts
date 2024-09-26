@@ -4,7 +4,7 @@ import arg from 'arg';
 import { mnemonicToWalletKey, mnemonicNew } from "@ton/crypto";
 import { WalletContractV4 } from "@ton/ton";
 
-import { getBouncableAddress, getNonBouncableAddress, getPublicAddressByWallet } from './public.address.utils';
+import { getBouncableAddress, getNonBouncableAddress, getPublicAddressByWallet } from '../address/addressUtils';
 
 require('dotenv').config();
 

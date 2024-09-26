@@ -5,7 +5,7 @@ import { LiteClient, LiteRoundRobinEngine, LiteSingleEngine } from "ton-lite-cli
 
 import { WalletContractV4 } from '@ton/ton';
 
-import { config } from '../config';
+import { config } from '../../config';
 
 type ClientManagerProvider = LiteClient;
 const enum ClientManagerProviders {
@@ -16,8 +16,10 @@ const enum ClientManagerProviders {
  * Midleware class to unify API for several connections ways
  */
 class Client {
-    clientManagerProvider: ClientManagerProvider
-    constructor (clientManagerProvider: ClientManagerProvider) {}
+    clientManagerProvider: ClientManagerProvider;
+    constructor (clientManagerProvider: ClientManagerProvider) {
+        this.clientManagerProvider = clientManagerProvider;
+    }
 
     open(wallet: WalletContractV4) {
         return this.clientManagerProvider.open(wallet);

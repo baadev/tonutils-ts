@@ -1,17 +1,50 @@
 {
+  "name": "tonutils-ts",
+  "version": "0.0.5",
+  "description": "TonUtils: TS/JS library with alternative connections to TON APIs, making blockchain interactions easier.",
+  "author": "baadev <os@baadev.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baadev/tonutils-ts"
+  },
+  "keywords": [
+    "ton",
+    "typescript",
+    "blockchain",
+    "utils"
+  ],
+  "bugs": {
+    "url": "https://github.com/baadev/tonutils-ts/issues"
+  },
+  "homepage": "https://github.com/baadev/tonutils-ts#readme",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./address": "./dist/src/address/index.js",
+    "./wallet": "./dist/src/wallet/index.js"
+  },
+  "scripts": {
+    "build": "rm -fr dist && tsc --declaration",
+    "gen": "ts-node ./wallet_gen/multi_wallet_gen.ts",
+    "popup": "ts-node ./wallet_popup/multi_wallet_popup_ton.ts",
+    "multisend": "ts-node ./wallet_multisend/wallet_multisend.ts"
+  },
   "dependencies": {
     "@ton/core": "^0.54.0",
     "@ton/crypto": "^3.2.0",
     "@ton/ton": "^13.9.0",
-    "ton-lite-client": "^3.0.0",
-    "ts-node": "^10.9.2",
     "arg": "^5.0.2",
     "buffer": "^6.0.3",
-    "dotenv": "^16.4.1"
+    "dotenv": "^16.4.1",
+    "ton-lite-client": "^3.0.0",
+    "ts-node": "^10.9.2"
   },
-  "scripts": {
-    "gen": "ts-node ./wallet_gen/multi_wallet_gen.ts",
-    "popup": "ts-node ./wallet_popup/multi_wallet_popup_ton.ts",
-    "multisend": "ts-node ./wallet_multisend/wallet_multisend.ts"
+  "devDependencies": {
+    "typescript": "^4.5.5"
   }
 }
