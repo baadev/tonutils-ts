@@ -1,6 +1,6 @@
 {
   "name": "tonutils-ts",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "TonUtils: TS/JS library with alternative connections to TON APIs, making blockchain interactions easier.",
   "author": "baadev <os@baadev.com>",
   "license": "MIT",
@@ -18,15 +18,15 @@
     "url": "https://github.com/baadev/tonutils-ts/issues"
   },
   "homepage": "https://github.com/baadev/tonutils-ts#readme",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist/**/*"
   ],
   "exports": {
-    ".": "./dist/index.js",
-    "./address": "./dist/address/index.js",
-    "./wallet": "./dist/wallet/index.js"
+    ".": "./dist/src/index.js",
+    "./address": "./dist/src/address/index.js",
+    "./wallet": "./dist/src/wallet/index.js"
   },
   "scripts": {
     "build": "rm -fr dist && tsc --declaration",
