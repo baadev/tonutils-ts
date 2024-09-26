@@ -229,9 +229,10 @@ We welcome contributions from the community! If you're interested in helping imp
 TonUtils is released under the [MIT License](LICENSE). Feel free to fork and modify it as per your needs.
 
 
-[tgg-svg]: https://img.shields.io/badge/Telegram%20-Group-blue
-[tg-group]: https://t.me/tonutils_ts
-
 ## Support
 
 If you need assistance or have any questions, feel free to open an issue or contact us directly.
+
+
+[tgg-svg]: https://img.shields.io/badge/Telegram%20-Group-blue
+[tg-group]: https://t.me/tonutils_ts
