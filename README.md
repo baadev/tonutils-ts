@@ -13,26 +13,26 @@
 
 <!-- TOC -->
 
-  - [Why TonUtils?](#why-tonutils)
-  - [Features](#features)
-  - [Getting Started](#getting-started)
-      - [Prerequisites](#prerequisites)
-      - [Installation](#installation)
-  - [Features Description](#features-description)
-      - [Public Address Utils](#public-address-utils)
-      - [Wallet Creation](#wallet-creation)
-  - [CLI commands](#cli-commands)
-      - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
-      - [Wallet Management CLI](#wallet-management-cli)
-      - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
-      - [Transaction Crafting](#transaction-crafting)
-  - [How to Contribute](#how-to-contribute)
-  - [License](#license)
-  - [Support](#support)
+- [TonUtils](#tonutils)
+    - [Why TonUtils?](#why-tonutils)
+    - [Features](#features)
+    - [Getting Started](#getting-started)
+        - [Prerequisites](#prerequisites)
+        - [Installation](#installation)
+    - [Features Description](#features-description)
+        - [Public Address Utils](#public-address-utils)
+        - [Wallet Creation](#wallet-creation)
+    - [CLI commands](#cli-commands)
+            - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
+        - [Wallet Management CLI](#wallet-management-cli)
+        - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
+            - [Available arguments](#available-arguments)
+        - [Transaction Crafting](#transaction-crafting)
+    - [How to Contribute](#how-to-contribute)
+    - [License](#license)
+    - [Support](#support)
 
-<!-- /TOC -->
-
-Developing on the TON blockchain can be tough, especially when you are new to TON. Suppose you are an NFT marketplace developer, trying to sell your collections, but you face confusing docs, random bugs, and unreliable APIs. Official tools often don't work well, making things even harder.
+<!-- /TOC --> the TON blockchain can be tough, especially when you are new to TON. Suppose you are an NFT marketplace developer, trying to sell your collections, but you face confusing docs, random bugs, and unreliable APIs. Official tools often don't work well, making things even harder.
 
 ## Why TonUtils?
 
@@ -179,22 +179,40 @@ Wallet Management utility will allow you to generate specified amount of new wal
 npx ts-node ./wallet_gen/multi_wallet_gen.ts --wallets 3 --popup 0.01
 ```
 
-#### Available arguments
+#### Arguments aviable
 
 | Argument | Description | Example |
 | ----------- | ---------| ----------- |
 | `--wallets` | The number of wallets to be created | `--wallets 3`|
 | `--popup`   | The amount of TON to be sent to each wallet | `--popup 0.01` |
 
-For more information, please refer to the [README](./wallet_gen/README.md) file in the `wallet_gen` directory.
+See the [README](./wallet_gen/README.md) in the `wallet_gen directory` for more details.
 
 -----------
 
 ### Transaction Crafting
 
-The `wallet_popup` directory contains a TypeScript script used for sending TON cryptocurrency from a funding wallet to a list of other wallets. For more details, please refer to the [README](./wallet_popup/README.md) file in the `wallet_popup` directory.
+The `wallet_popup` directory contains a script for sending TON cryptocurrency from a funding wallet to a list of other wallets.
 
+Here’s how to set up `WALLET_LIST` in your `.env` and run the script from the command line:
 
+1. Create a `.env` file in project root if it doesn’t exist.
+2. Add `WALLET_LIST` as a JSON array of wallet addresses. Example:
+
+```ini
+   FUNDING_SEED="your mnemonic phrase here"
+   SEND_VALUE="10"
+   WALLET_LIST='["EQCDkrpCu-FFVPQJnManjlf8XCN75wjX_AKrrEFFQ1mfJqZo", "EQCDeEg..."]'
+```
+
+3. Run the script using `ts-node`:
+
+```bash
+npx ts-node ./wallet-popup/your-script.ts
+```
+The script will read the addresses from `WALLET_LIST` and send the specified amount of TON to each address.
+
+See the [README](./wallet_popup/README.md) file in the `wallet_popup` directory for more details.
 
 ## How to Contribute
 
