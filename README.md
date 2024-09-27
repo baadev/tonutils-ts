@@ -25,7 +25,7 @@
       - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
       - [Wallet Management CLI](#wallet-management-cli)
       - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
-          - [Available arguments](#available-arguments)
+          - [Arguments available](#arguments-available)
       - [Transaction Crafting](#transaction-crafting)
   - [How to Contribute](#how-to-contribute)
   - [License](#license)
@@ -178,7 +178,7 @@ Wallet Management utility will allow you to generate specified amount of new wal
 npx ts-node ./wallet_gen/multi_wallet_gen.ts --wallets 3 --popup 0.01
 ```
 
-#### Arguments aviable
+#### Arguments available
 
 | Argument | Description | Example |
 | ----------- | ---------| ----------- |
