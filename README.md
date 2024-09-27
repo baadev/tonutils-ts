@@ -164,15 +164,15 @@ Wallet Management utility will allow you to generate specified amount of new wal
 
    # For multisend
    # destination address / giver
-   RECEIVER_ADDRESS="EQCDkrpCu-FFVPQJnManjlf8XCN75wjX_AKrrEFFQ1mfJqZo" 
+   RECEIVER_ADDRESS="UQBFoaSviVB76rjARNE8mz5RJADALWEv_owkRhDNIs326obj" 
    # amount to be sent
-   SENT_AMOUNT=0.3
+   SENT_AMOUNT=0.01
    # 0 will send endlessly until manual stop
    SENT_COUNT=0
    # delay between sends
    SENT_DELAY=""
    # comment for transaction
-   SENT_BODY="yo UQB1b1A_P7qFJJYwHN7AXHg2lZRhpyyvQFb0NYBKyRN3eAXi"
+   SENT_BODY="Any comment here"
 ```
 
 2. Run the command:
@@ -204,13 +204,13 @@ Here’s how to set up `WALLET_LIST` in your `.env` and run the script from the 
 ```ini
    FUNDING_SEED="your mnemonic phrase here"
    SEND_VALUE="10"
-   WALLET_LIST='["EQCDkrpCu-FFVPQJnManjlf8XCN75wjX_AKrrEFFQ1mfJqZo", "EQCDeEg..."]'
+   WALLET_LIST='["UQBFoaSviVB76rjARNE8mz5RJADALWEv_owkRhDNIs326obj", "EQCDeEg..."]'
 ```
 
 3. Run the script using `ts-node`:
 
 ```bash
-npx ts-node ./wallet-popup/your-script.ts
+npx ts-node ./wallet-popup/multi_wallet_popup_ton.ts
 ```
 The script will read the addresses from `WALLET_LIST` and send the specified amount of TON to each address.
 
