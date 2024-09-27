@@ -13,15 +13,19 @@
 
 <!-- TOC -->
 
-- [TonUtils](#tonutils)
-        - [Why TonUtils?](#why-tonutils)
-        - [Features](#features)
+  - [Why TonUtils?](#why-tonutils)
+  - [Features](#features)
   - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
+      - [Prerequisites](#prerequisites)
+      - [Installation](#installation)
   - [Features Description](#features-description)
-    - [Public Address Utils](#public-address-utils)
-    - [Wallet Creation](#wallet-creation)
+      - [Public Address Utils](#public-address-utils)
+      - [Wallet Creation](#wallet-creation)
+  - [CLI commands](#cli-commands)
+      - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
+      - [Wallet Management CLI](#wallet-management-cli)
+      - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
+      - [Transaction Crafting](#transaction-crafting)
   - [How to Contribute](#how-to-contribute)
   - [License](#license)
   - [Support](#support)
@@ -46,7 +50,7 @@ Focus on your product, not on fighting with the blockchain.
 
 - [**Public Address Utils**](#public-address-utils): Quickly validate and manage wallet addresses, reducing errors and saving time.
 - [**Wallet Creation**](#wallet-creation): Create secure wallets easily with simple code, no complex guides needed.
-- [**Transaction Crafting**](#transaction-crafting) (Coming Soon): Effortlessly craft and send transactions, focus on your project, not on blockchain complexity.
+- [**Transaction Crafting**](#transaction-crafting): Effortlessly craft and send transactions, focus on your project, not on blockchain complexity.
 
 ## Getting Started
 
@@ -117,11 +121,22 @@ npm install tonutils-ts
     const { mnemonic, keyPair, generatedWallet } = await createWallet();
     // Output: { mnemonic, keyPair, generatedWallet }
     ```
+## CLI commands
 
-<!-- WHILE NOT IN NPM - NO DOCUMENTATION
+These features are currently available via the command line. Useful for creating and managing wallets, sending transactions, and testing addresses. 
+
+To use them, clone the repository:
+
+```bash
+git clone https://github.com/baadev/tonutils-ts.git
+cd TonUtils
+```
+
+Then, you can run the CLI tools below.
+
 #### Get Public Address by Mnemonic (CLI)
 
-A CLI command to get a public address from a mnemonic. Useful for quick wallet creation and testing addresses:
+A CLI command to get a public address from a mnemonic. Helpful for quick wallet creation and testing addresses:
 
 ```BASH
 npx ts-node ./modules/public.address.utils.ts -m 'abandon ability able about above absent absorb abstract absurd abuse access accident account accuse achieve acid acoustic acquire across act action actor actress actual adapt'
@@ -179,7 +194,7 @@ For more information, please refer to the [README](./wallet_gen/README.md) file 
 
 The `wallet_popup` directory contains a TypeScript script used for sending TON cryptocurrency from a funding wallet to a list of other wallets. For more details, please refer to the [README](./wallet_popup/README.md) file in the `wallet_popup` directory.
 
--->
+
 
 ## How to Contribute
 
@@ -195,7 +210,9 @@ TonUtils is released under the [MIT License](LICENSE). Feel free to fork and mod
 
 ## Support
 
-If you need assistance or have any questions, feel free to open an issue or contact us directly.
+If you need assistance or have any questions, feel free to open an issue or contact us directly:
 
+[tgg-svg]: https://img.shields.io/badge/Telegram%20-Group-blue?style=flat-square
+[tgc-svg]: https://img.shields.io/badge/Telegram%20-Chanel-blue?style=flat-square
 [tg-group]: https://t.me/tonutils_ts
 [tg-chanel]: https://t.me/tonutilsts
