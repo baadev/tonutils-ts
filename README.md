@@ -3,10 +3,13 @@
 
 <img src="https://github.com/baadev/TonUtils/blob/main/assets/TonUtils.png?raw=true" width=500 />
 
-[![Telegram Channel][tgg-svg]][tg-group]
-![Licence](https://img.shields.io/github/license/baadev/TonUtils)
-![Issues](https://img.shields.io/github/issues/baadev/TonUtils)
-![Stars](https://img.shields.io/github/stars/baadev/TonUtils?style=plastic)
+[![Telegram Group][tgg-svg]][tg-group]
+[![Telegram Chanel][tgc-svg]][tg-chanel]
+![Licence](https://img.shields.io/github/license/baadev/TonUtils?style=flat-square)
+![NPM Version](https://img.shields.io/npm/v/tonutils-ts?style=flat-square)
+![NPM Downloads](https://img.shields.io/npm/dw/tonutils-ts?style=flat-square)
+![Stars](https://img.shields.io/github/stars/baadev/TonUtils?style=flat-square)
+
 
 <!-- TOC -->
 
@@ -194,5 +197,5 @@ TonUtils is released under the [MIT License](LICENSE). Feel free to fork and mod
 
 If you need assistance or have any questions, feel free to open an issue or contact us directly.
 
-[tgg-svg]: https://img.shields.io/badge/Telegram%20-Group-blue
 [tg-group]: https://t.me/tonutils_ts
+[tg-chanel]: https://t.me/tonutilsts
