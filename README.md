@@ -11,27 +11,32 @@
 ![Stars](https://img.shields.io/github/stars/baadev/TonUtils?style=flat-square)
 
 
-- [About](#about)
-  - [Why TonUtils?](#why-tonutils)
-  - [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Features Description](#features-description)
-  - [Public Address Utils](#public-address-utils)
-  - [Wallet Management](#wallet-management)
-  - [Transaction Crafting](#transaction-crafting)
-- [How to Contribute](#how-to-contribute)
-- [License](#license)
-- [Support](#support)
+<!-- TOC -->
 
-## About
+- [TonUtils](#tonutils)
+    - [Why TonUtils?](#why-tonutils)
+    - [Features](#features)
+    - [Getting Started](#getting-started)
+        - [Prerequisites](#prerequisites)
+        - [Installation](#installation)
+    - [Features Description](#features-description)
+        - [Public Address Utils](#public-address-utils)
+        - [Wallet Creation](#wallet-creation)
+    - [CLI commands](#cli-commands)
+        - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
+        - [Wallet Management CLI](#wallet-management-cli)
+        - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
+            - [Arguments available](#arguments-available)
+        - [Transaction Crafting](#transaction-crafting)
+    - [How to Contribute](#how-to-contribute)
+    - [License](#license)
+    - [Support](#support)
 
-> Simplicity, Reliability, and Speed for Working with the TON Blockchain
+<!-- /TOC -->
 
-Developing on the TON blockchain can be tough, especially when you are new to TON. Suppose you are an NFT marketplace developer, trying to sell your collections, but you face confusing docs, random bugs, and unreliable APIs. Official tools often don't work well, making things even harder.
+The TON blockchain can be tough, especially when you are new to TON. Suppose you are an NFT marketplace developer, trying to sell your collections, but you face confusing docs, random bugs, and unreliable APIs. Official tools often don't work well, making things even harder.
 
-### Why TonUtils?
+## Why TonUtils?
 
 TON is the fastest blockchain, but high activity (such as major listings) can cause endpoints like TonApi or Public Light Servers to go down, leading to failed transactions and frustration. TonUtils helps solve these problems:
 
@@ -43,7 +48,7 @@ TON is the fastest blockchain, but high activity (such as major listings) can ca
 
 Focus on your product, not on fighting with the blockchain.
 
-### Features
+## Features
 
 - [**Public Address Utils**](#public-address-utils): Quickly validate and manage wallet addresses, reducing errors and saving time.
 - [**Wallet Creation**](#wallet-creation): Create secure wallets easily with simple code, no complex guides needed.
@@ -60,126 +65,82 @@ Before you begin, ensure you have installed:
 
 ### Installation
 
-To get started with `TonUtils`, clone the repository and install its dependencies:
+To get started with `TonUtils`, simply install it as a package using npm:
 
 ```bash
-git clone https://github.com/baadev/TonUtils.git
-cd TonUtils
-npm install
+npm install tonutils-ts
 ```
 
 ## Features Description
 
 ### Public Address Utils
 
-#### Module `public.address.utils`
+- **getPublicAddressByWallet**
+  - **Description**: Returns the public address associated with a given wallet.
+  - **Example**:
 
-<table>
-    <tr>
-        <th>Function</th>
-        <th>Description</th>
-        <th>Example Output:</th>
-    </tr>
-    <tr>
-        <td>getPublicAddressByWallet</td>
-        <td>Returns the public address associated with a given wallet.</td>
-        <td>
-            <pre>EQCgBnDa0omfX3xW-UoxUZNn0fdCm7YWnaj1dVjZz_EDpxZL</pre>
-        </td>
-    </tr>
-    <tr>
-        <td>getPublicAddressByMnenomic</td>
-        <td>Retrieves the public address associated with a given mnemonic.</td>
-        <td>
-            <pre>EQCgBnDa0omfX3xW-UoxUZNn0fdCm7YWnaj1dVjZz_EDpxZL</pre>
-        </td>
-    </tr>
-    <tr>
-        <td>getBouncableAddress</td>
-        <td>Returns the bounceable address for the given address.</td>
-        <td>
-            <pre>EQCgBnDa0omfX3xW-UoxUZNn0fdCm7YWnaj1dVjZz_EDpxZL</pre>
-        </td>
-    </tr>
-    <tr>
-        <td>getNonBouncableAddress</td>
-        <td>Returns the non-bounceable address for the given address.</td>
-        <td>
-            <pre>UQCgBnDa0omfX3xW-UoxUZNn0fdCm7YWnaj1dVjZz_EDp0uO</pre>
-        </td>
-    </tr>
-</table>
+    ```typescript
+    const address = getPublicAddressByWallet(WalletContractV4);
+    // Output: EQCgBnDa0omfX3xW-UoxUZNn0fdCm7YWnaj1dVjZz_EDpxZL
+    ```
 
-##### Usage
+- **getPublicAddressByMnemonic**
+  - **Description**: Retrieves the public address associated with a given mnemonic.
+  - **Example**:
 
-<table>
-    <tr>
-        <th>Function</th>
-        <th>Example</th>
-    </tr>
-    <tr>
-        <td>getPublicAddressByWallet</td>
-        <td>
-            <pre lang="typescript"><code>getPublicAddressByWallet(WalletContractV4)</code></pre>
-        </td>
-    </tr>
-    <tr>
-        <td>getPublicAddressByMnenomic</td>
-        <td>
-            <pre lang="typescript"><code>await getPublicAddressByMnenomic("one two three...");</code></pre>
-            <p>or</p>
-            <pre lang="typescript"><code>await getPublicAddressByMnenomic(["one", "two", "three"]);</code></pre>
-        </td>
-    </tr>
-    <tr>
-        <td>getBouncableAddress</td>
-        <td>
-            <pre lang="typescript"><code>getBouncableAddress("UQ...");</code></pre>
-        </td>
-    </tr>
-    <tr>
-        <td>getNonBouncableAddress</td>
-        <td>
-            <pre lang="typescript"><code>getBouncableAddress("EQ...");</code></pre>
-        </td>
-    </tr>
-</table>
+    ```typescript
+    const address = await getPublicAddressByMnemonic("one two three...");
+    // or
+    const address = await getPublicAddressByMnemonic(["one", "two", "three"]);
+    // Output: EQCgBnDa0omfX3xW-UoxUZNn0fdCm7YWnaj1dVjZz_EDpxZL
+    ```
 
-#### Module `wallet`
+- **getBouncableAddress**
+  - **Description**: Returns the bounceable address for the given address.
+  - **Example**:
 
-<table>
-    <tr>
-        <th>Function</th>
-        <th>Description</th>
-        <th>Output</th>
-    </tr>
-    <tr>
-        <td>createWallet</td>
-        <td>Returns a new wallet.</td>
-        <td>
-            <pre lang="typescript"><code>{ mnemonic, keyPair, generatedWallet }</code></pre>
-        </td>
-    </tr>
-</table>
+    ```typescript
+    const bouncableAddress = getBouncableAddress("UQ...");
+    // Output: EQCgBnDa0omfX3xW-UoxUZNn0fdCm7YWnaj1dVjZz_EDpxZL
+    ```
 
-##### Usage
+- **getNonBouncableAddress**
+  - **Description**: Returns the non-bounceable address for the given address.
+  - **Example**:
 
-<table>
-    <tr>
-        <th>Function</th>
-        <th>Example</th>
-    </tr>
-    <tr>
-        <td>createWallet</td>
-        <td>
-            <pre lang="typescript"><code>const { mnemonic, keyPair, generatedWallet } = await createWallet();</code></pre>
-        </td>
-    </tr>
-</table>
+    ```typescript
+    const nonBouncableAddress = getNonBouncableAddress("EQ...");
+    // Output: UQCgBnDa0omfX3xW-UoxUZNn0fdCm7YWnaj1dVjZz_EDp0uO
+    ```
 
-#### Example get public address by mnemonic as cmd tool
+### Wallet Creation
 
-```console
+- **createWallet**
+  - **Description**: Returns a new wallet.
+  - **Example**:
+
+    ```typescript
+    const { mnemonic, keyPair, generatedWallet } = await createWallet();
+    // Output: { mnemonic, keyPair, generatedWallet }
+    ```
+## CLI commands
+
+These features are currently available via the command line. Useful for creating and managing wallets, sending transactions, and testing addresses. 
+
+To use them, clone the repository:
+
+```bash
+git clone https://github.com/baadev/tonutils-ts.git
+cd TonUtils
+```
+
+Then, you can run the CLI tools below.
+
+### Get Public Address by Mnemonic (CLI)
+
+A CLI command to get a public address from a mnemonic. Helpful for quick wallet creation and testing addresses:
+
+```BASH
 npx ts-node ./modules/public.address.utils.ts -m 'abandon ability able about above absent absorb abstract absurd abuse access accident account accuse achieve acid acoustic acquire across act action actor actress actual adapt'
 
 # Output:
@@ -187,37 +148,73 @@ Bounceable:  EQBDyloUvY25siQu-6XzJ4M7bBWUwUxGQ7BRC7oOB0R1JQ3Y
 Not Bounceable:  UQBDyloUvY25siQu-6XzJ4M7bBWUwUxGQ7BRC7oOB0R1JVAd
 ```
 
------------
-
-### Wallet Management
+### Wallet Management (CLI)
 
 Wallet Management utility will allow you to generate specified amount of new wallets and send specified amount of TON in order to activate it in blockchain.
 
-#### Example of creating 3 activated wallets with balance of 0.01 using cmd
+### Create Activated Wallets with Balance
 
-Put your funding wallet mnemonic like showed below in your .env file
-`FUNDING_SEED=one two three...`
+1. Create a `.env` file in your project:
 
-After that run:
+```BASH
+   # Your wallet with funds
+   FUNDING_SEED="one two three.."
+   # optional, tonapi key
+   TONAPI_KEY=""
 
-```console
+   # For multisend
+   # destination address / giver
+   RECEIVER_ADDRESS="UQBFoaSviVB76rjARNE8mz5RJADALWEv_owkRhDNIs326obj" 
+   # amount to be sent
+   SENT_AMOUNT=0.01
+   # 0 will send endlessly until manual stop
+   SENT_COUNT=0
+   # delay between sends
+   SENT_DELAY=""
+   # comment for transaction
+   SENT_BODY="Any comment here"
+```
+
+2. Run the command:
+
+```BASH
 npx ts-node ./wallet_gen/multi_wallet_gen.ts --wallets 3 --popup 0.01
 ```
 
-#### Available arguments
+#### Arguments available
 
-| Argument    | Description                                 | Example       |
-| ----------- | ---------------------------                 | -----------   |
-| --wallets   | The number of wallets to be created         | --wallets 3   |
-| --popup     | The amount of TON to be sent to each wallet | --popup 0.01  |
+| Argument | Description | Example |
+| ----------- | ---------| ----------- |
+| `--wallets` | The number of wallets to be created | `--wallets 3`|
+| `--popup`   | The amount of TON to be sent to each wallet | `--popup 0.01` |
 
-For more information, please refer to the [README](./wallet_gen/README.md) file in the `wallet_gen` directory.
+See the [README](./wallet_gen/README.md) in the `wallet_gen directory` for more details.
 
 -----------
 
 ### Transaction Crafting
 
-The `wallet_popup` directory contains a TypeScript script used for sending TON cryptocurrency from a funding wallet to a list of other wallets. For more details, please refer to the [README](./wallet_popup/README.md) file in the `wallet_popup` directory.
+The `wallet_popup` directory contains a script for sending TON cryptocurrency from a funding wallet to a list of other wallets.
+
+Here’s how to set up `WALLET_LIST` in your `.env` and run the script from the command line:
+
+1. Create a `.env` file in project root if it doesn’t exist.
+2. Add `WALLET_LIST` as a JSON array of wallet addresses. Example:
+
+```ini
+   FUNDING_SEED="your mnemonic phrase here"
+   SEND_VALUE="10"
+   WALLET_LIST='["UQBFoaSviVB76rjARNE8mz5RJADALWEv_owkRhDNIs326obj", "EQCDeEg..."]'
+```
+
+3. Run the script using `ts-node`:
+
+```bash
+npx ts-node ./wallet-popup/multi_wallet_popup_ton.ts
+```
+The script will read the addresses from `WALLET_LIST` and send the specified amount of TON to each address.
+
+See the [README](./wallet_popup/README.md) file in the `wallet_popup` directory for more details.
 
 ## How to Contribute
 
@@ -231,11 +228,9 @@ We welcome contributions from the community! If you're interested in helping imp
 
 TonUtils is released under the [MIT License](LICENSE). Feel free to fork and modify it as per your needs.
 
-
 ## Support
 
-If you need assistance or have any questions, feel free to open an issue or contact us directly.
-
+If you need assistance or have any questions, feel free to open an issue or contact us directly:
 
 [tgg-svg]: https://img.shields.io/badge/Telegram%20-Group-blue?style=flat-square
 [tgc-svg]: https://img.shields.io/badge/Telegram%20-Chanel-blue?style=flat-square

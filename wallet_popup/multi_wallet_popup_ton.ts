@@ -1,6 +1,5 @@
 import fs from 'fs';
 import axios from "axios";
-
 import { mnemonicToWalletKey } from "@ton/crypto";
 import { WalletContractV4, internal } from "@ton/ton";
 import { LiteClient, LiteSingleEngine, LiteRoundRobinEngine } from "ton-lite-client";
@@ -10,12 +9,11 @@ require('dotenv').config();
 let lc: LiteClient | undefined = undefined
 let createLiteClient: Promise<void>
 
-const walletList: any = [
-  // Add wallet addresses here
+const walletList: string[] = process.env.WALLET_LIST ? JSON.parse(process.env.WALLET_LIST) : [
+   // Or add wallet addresses here
 ];
 
-// The amount of TON to be sent to each wallet
-const sendValue: string = "10";
+const sendValue: string = process.env.SEND_VALUE || "10";
 
 /**
  * Entry point of the script.
