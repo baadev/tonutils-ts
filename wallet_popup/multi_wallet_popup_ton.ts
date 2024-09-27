@@ -108,6 +108,11 @@ export async function getLiteClient(_configUrl?: any): Promise<LiteClient> {
   return lc as any;
 }
 
+/**
+ * Converts an integer to an IP address string.
+ * @param int The integer representation of the IP address.
+ * @returns The IP address string.
+ */
 function intToIP(int: number) {
   const part1 = int & 255;
   const part2 = (int >> 8) & 255;
