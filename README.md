@@ -13,24 +13,23 @@
 
 <!-- TOC -->
 
-- [TonUtils](#tonutils)
-    - [Why TonUtils?](#why-tonutils)
-    - [Features](#features)
-    - [Getting Started](#getting-started)
-        - [Prerequisites](#prerequisites)
-        - [Installation](#installation)
-    - [Features Description](#features-description)
-        - [Public Address Utils](#public-address-utils)
-        - [Wallet Creation](#wallet-creation)
-    - [CLI commands](#cli-commands)
-            - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
-        - [Wallet Management CLI](#wallet-management-cli)
-        - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
-            - [Available arguments](#available-arguments)
-        - [Transaction Crafting](#transaction-crafting)
-    - [How to Contribute](#how-to-contribute)
-    - [License](#license)
-    - [Support](#support)
+  - [Why TonUtils?](#why-tonutils)
+  - [Features](#features)
+  - [Getting Started](#getting-started)
+      - [Prerequisites](#prerequisites)
+      - [Installation](#installation)
+  - [Features Description](#features-description)
+      - [Public Address Utils](#public-address-utils)
+      - [Wallet Creation](#wallet-creation)
+  - [CLI commands](#cli-commands)
+      - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
+      - [Wallet Management CLI](#wallet-management-cli)
+      - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
+          - [Available arguments](#available-arguments)
+      - [Transaction Crafting](#transaction-crafting)
+  - [How to Contribute](#how-to-contribute)
+  - [License](#license)
+  - [Support](#support)
 
 <!-- /TOC --> the TON blockchain can be tough, especially when you are new to TON. Suppose you are an NFT marketplace developer, trying to sell your collections, but you face confusing docs, random bugs, and unreliable APIs. Official tools often don't work well, making things even harder.
 
@@ -134,7 +133,7 @@ cd TonUtils
 
 Then, you can run the CLI tools below.
 
-#### Get Public Address by Mnemonic (CLI)
+### Get Public Address by Mnemonic (CLI)
 
 A CLI command to get a public address from a mnemonic. Helpful for quick wallet creation and testing addresses:
 
