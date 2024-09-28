@@ -1,6 +1,6 @@
 {
   "name": "tonutils-ts",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "TonUtils: TS/JS library with alternative connections to TON APIs, making blockchain interactions easier.",
   "author": "baadev <os@baadev.com>",
   "license": "MIT",
