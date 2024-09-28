@@ -19,14 +19,14 @@
     - [Getting Started](#getting-started)
         - [Prerequisites](#prerequisites)
         - [Installation](#installation)
+        - [Usage](#usage)
     - [Features Description](#features-description)
-        - [Public Address Utils](#public-address-utils)
         - [Wallet Creation](#wallet-creation)
+        - [Public Address Utils](#public-address-utils)
     - [CLI commands](#cli-commands)
         - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
         - [Wallet Management CLI](#wallet-management-cli)
         - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
-            - [Arguments available](#arguments-available)
         - [Transaction Crafting](#transaction-crafting)
     - [How to Contribute](#how-to-contribute)
     - [License](#license)
@@ -70,8 +70,40 @@ To get started with `TonUtils`, simply install it as a package using npm:
 ```bash
 npm install tonutils-ts
 ```
+### Usage
+
+To use `tonutils-ts` in your project, import the necessary functions (listed below, see [full list here](#features-description)) from the library. 
+
+For example, to create a wallet and get its address, import the functions `createWallet` and `getPublicAddressByWallet` and implement them as shown below: 
+
+```typescript
+import { createWallet, getPublicAddressByWallet } from 'tonutils-ts';
+
+async function getAddress(): Promise<string> {
+  // Create a new wallet
+  const { generatedWallet } = await createWallet();
+
+  // Get the public address of the created wallet
+  return getPublicAddressByWallet(generatedWallet).toString();
+}
+
+// Call the function
+getAddress().then(address => console.log('Wallet Address:', address));
+```
+This will create a TON-wallet and display its address. Adjust the code to suit your project needs. For a full list of functions, see the list above.
 
 ## Features Description
+
+### Wallet Creation
+
+- **createWallet**
+  - **Description**: Returns a new wallet.
+  - **Example**:
+
+    ```typescript
+    const { mnemonic, keyPair, generatedWallet } = await createWallet();
+    // Output: { mnemonic, keyPair, generatedWallet }
+    ```
 
 ### Public Address Utils
 
@@ -113,19 +145,10 @@ npm install tonutils-ts
     // Output: UQCgBnDa0omfX3xW-UoxUZNn0fdCm7YWnaj1dVjZz_EDp0uO
     ```
 
-### Wallet Creation
-
-- **createWallet**
-  - **Description**: Returns a new wallet.
-  - **Example**:
-
-    ```typescript
-    const { mnemonic, keyPair, generatedWallet } = await createWallet();
-    // Output: { mnemonic, keyPair, generatedWallet }
-    ```
+   ```
 ## CLI commands
 
-These features are currently available via the command line. Useful for creating and managing wallets, sending transactions, and testing addresses. 
+These features are currently available only via the command line. Useful for creating and managing wallets, sending transactions, and testing addresses. 
 
 To use them, clone the repository:
 
