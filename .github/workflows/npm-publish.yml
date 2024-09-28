@@ -14,11 +14,6 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-artifact@v4
-        with:
-          name: build-artifact
-          path: |
-            dist/**
 
   publish-npm:
     needs: build
@@ -29,11 +24,8 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
-      - uses: actions/download-artifact@v4
-        with:
-          name: build-artifact
-          path: .
       - run: npm ci
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
