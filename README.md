@@ -27,13 +27,13 @@
         - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
         - [Wallet Management CLI](#wallet-management-cli)
         - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
+            - [Arguments available](#arguments-available)
         - [Transaction Crafting](#transaction-crafting)
     - [How to Contribute](#how-to-contribute)
     - [License](#license)
     - [Support](#support)
 
 <!-- /TOC -->
-
 The TON blockchain can be tough, especially when you are new to TON. Suppose you are an NFT marketplace developer, trying to sell your collections, but you face confusing docs, random bugs, and unreliable APIs. Official tools often don't work well, making things even harder.
 
 ## Why TonUtils?
@@ -109,6 +109,7 @@ This will create a TON-wallet and display its address. Adjust the code to suit y
 
 - **getPublicAddressByWallet**
   - **Description**: Returns the public address associated with a given wallet.
+  See [`WalletContractV4`](https://ton-community.github.io/ton/classes/WalletContractV4.html) documentation.
   - **Example**:
 
     ```typescript
