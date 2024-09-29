@@ -27,7 +27,6 @@
         - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
         - [Wallet Management CLI](#wallet-management-cli)
         - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
-            - [Arguments available](#arguments-available)
         - [Transaction Crafting](#transaction-crafting)
     - [How to Contribute](#how-to-contribute)
     - [License](#license)
@@ -50,9 +49,9 @@ Focus on your product, not on fighting with the blockchain.
 
 ## Features
 
-- [**Public Address Utils**](#public-address-utils): Quickly validate and manage wallet addresses, reducing errors and saving time.
 - [**Wallet Creation**](#wallet-creation): Create secure wallets easily with simple code, no complex guides needed.
-- [**Transaction Crafting**](#transaction-crafting): Effortlessly craft and send transactions, focus on your project, not on blockchain complexity.
+- [**Public Address Utils**](#public-address-utils): Quickly validate and manage wallet addresses, reducing errors and saving time.
+- [**Transaction Crafting**](#transaction-crafting) (Coming soon): Effortlessly craft and send transactions, focus on your project, not on blockchain complexity.
 
 ## Getting Started
 
@@ -72,25 +71,36 @@ npm install tonutils-ts
 ```
 ### Usage
 
-To use `tonutils-ts` in your project, import the necessary functions (listed below, see [full list here](#features-description)) from the library. 
+To use `tonutils-ts` in your project, import the necessary functions listed below (see [full list here](#features-description)). 
 
-For example, to create a wallet and get its address, import the functions `createWallet` and `getPublicAddressByWallet` and implement them as shown below: 
+For example, to create a wallet, import the functions `createWallet` and `getPublicAddressByWallet` and implement them as shown below: 
 
 ```typescript
 import { createWallet, getPublicAddressByWallet } from 'tonutils-ts';
 
-async function getAddress(): Promise<string> {
+async function getAddress(): Promise<void> {
   // Create a new wallet
-  const { generatedWallet } = await createWallet();
+  const { mnemonic, keyPair, generatedWallet } = await createWallet();
 
   // Get the public address of the created wallet
-  return getPublicAddressByWallet(generatedWallet).toString();
+  const publicAddress = getPublicAddressByWallet(generatedWallet).toString();
+
+  // Convert public and secret keys from Buffer to hex string
+  const publicKey = keyPair.publicKey.toString('hex');
+  const secretKey = keyPair.secretKey.toString('hex');
+
+  // Log all useful information
+  console.log('Wallet Address:', publicAddress);
+  console.log('Mnemonic:', mnemonic);
+  console.log('Public Key (Hex):', publicKey);
+  console.log('Secret Key (Hex):', secretKey);
 }
 
 // Call the function
-getAddress().then(address => console.log('Wallet Address:', address));
+getAddress();
 ```
-This will create a TON-wallet and display its address. Adjust the code to suit your project needs. For a full list of functions, see the list above.
+
+This will create a TON-wallet and display its address, mnemonic and key pair. Adjust the code to suit your project needs. For a full list of functions, see the list above.
 
 ## Features Description
 
@@ -109,7 +119,6 @@ This will create a TON-wallet and display its address. Adjust the code to suit y
 
 - **getPublicAddressByWallet**
   - **Description**: Returns the public address associated with a given wallet.
-  See [`WalletContractV4`](https://ton-community.github.io/ton/classes/WalletContractV4.html) documentation.
   - **Example**:
 
     ```typescript
@@ -129,7 +138,7 @@ This will create a TON-wallet and display its address. Adjust the code to suit y
     ```
 
 - **getBouncableAddress**
-  - **Description**: Returns the bounceable address for the given address.
+  - **Description**: Returns the bounceable address for the given address (non-bounceable).
   - **Example**:
 
     ```typescript
@@ -138,7 +147,7 @@ This will create a TON-wallet and display its address. Adjust the code to suit y
     ```
 
 - **getNonBouncableAddress**
-  - **Description**: Returns the non-bounceable address for the given address.
+  - **Description**: Returns the non-bounceable address for the given address(bounceable).
   - **Example**:
 
     ```typescript
