@@ -19,21 +19,20 @@
     - [Getting Started](#getting-started)
         - [Prerequisites](#prerequisites)
         - [Installation](#installation)
+        - [Usage](#usage)
     - [Features Description](#features-description)
-        - [Public Address Utils](#public-address-utils)
         - [Wallet Creation](#wallet-creation)
+        - [Public Address Utils](#public-address-utils)
     - [CLI commands](#cli-commands)
         - [Get Public Address by Mnemonic CLI](#get-public-address-by-mnemonic-cli)
         - [Wallet Management CLI](#wallet-management-cli)
         - [Create Activated Wallets with Balance](#create-activated-wallets-with-balance)
-            - [Arguments available](#arguments-available)
         - [Transaction Crafting](#transaction-crafting)
     - [How to Contribute](#how-to-contribute)
     - [License](#license)
     - [Support](#support)
 
 <!-- /TOC -->
-
 The TON blockchain can be tough, especially when you are new to TON. Suppose you are an NFT marketplace developer, trying to sell your collections, but you face confusing docs, random bugs, and unreliable APIs. Official tools often don't work well, making things even harder.
 
 ## Why TonUtils?
@@ -50,9 +49,9 @@ Focus on your product, not on fighting with the blockchain.
 
 ## Features
 
-- [**Public Address Utils**](#public-address-utils): Quickly validate and manage wallet addresses, reducing errors and saving time.
 - [**Wallet Creation**](#wallet-creation): Create secure wallets easily with simple code, no complex guides needed.
-- [**Transaction Crafting**](#transaction-crafting): Effortlessly craft and send transactions, focus on your project, not on blockchain complexity.
+- [**Public Address Utils**](#public-address-utils): Quickly validate and manage wallet addresses, reducing errors and saving time.
+- [**Transaction Crafting**](#transaction-crafting) (Coming soon): Effortlessly craft and send transactions, focus on your project, not on blockchain complexity.
 
 ## Getting Started
 
@@ -70,8 +69,51 @@ To get started with `TonUtils`, simply install it as a package using npm:
 ```bash
 npm install tonutils-ts
 ```
+### Usage
+
+To use `tonutils-ts` in your project, import the necessary functions listed below (see [full list here](#features-description)). 
+
+For example, to create a wallet, import the functions `createWallet` and `getPublicAddressByWallet` and implement them as shown below: 
+
+```typescript
+import { createWallet, getPublicAddressByWallet } from 'tonutils-ts';
+
+async function getAddress(): Promise<void> {
+  // Create a new wallet
+  const { mnemonic, keyPair, generatedWallet } = await createWallet();
+
+  // Get the public address of the created wallet
+  const publicAddress = getPublicAddressByWallet(generatedWallet).toString();
+
+  // Convert public and secret keys from Buffer to hex string
+  const publicKey = keyPair.publicKey.toString('hex');
+  const secretKey = keyPair.secretKey.toString('hex');
+
+  // Log all useful information
+  console.log('Wallet Address:', publicAddress);
+  console.log('Mnemonic:', mnemonic);
+  console.log('Public Key (Hex):', publicKey);
+  console.log('Secret Key (Hex):', secretKey);
+}
+
+// Call the function
+getAddress();
+```
+
+This will create a TON-wallet and display its address, mnemonic and key pair. Adjust the code to suit your project needs. For a full list of functions, see the list above.
 
 ## Features Description
+
+### Wallet Creation
+
+- **createWallet**
+  - **Description**: Returns a new wallet.
+  - **Example**:
+
+    ```typescript
+    const { mnemonic, keyPair, generatedWallet } = await createWallet();
+    // Output: { mnemonic, keyPair, generatedWallet }
+    ```
 
 ### Public Address Utils
 
@@ -96,7 +138,7 @@ npm install tonutils-ts
     ```
 
 - **getBouncableAddress**
-  - **Description**: Returns the bounceable address for the given address.
+  - **Description**: Returns the bounceable address for the given address (non-bounceable).
   - **Example**:
 
     ```typescript
@@ -105,7 +147,7 @@ npm install tonutils-ts
     ```
 
 - **getNonBouncableAddress**
-  - **Description**: Returns the non-bounceable address for the given address.
+  - **Description**: Returns the non-bounceable address for the given address(bounceable).
   - **Example**:
 
     ```typescript
@@ -113,19 +155,10 @@ npm install tonutils-ts
     // Output: UQCgBnDa0omfX3xW-UoxUZNn0fdCm7YWnaj1dVjZz_EDp0uO
     ```
 
-### Wallet Creation
-
-- **createWallet**
-  - **Description**: Returns a new wallet.
-  - **Example**:
-
-    ```typescript
-    const { mnemonic, keyPair, generatedWallet } = await createWallet();
-    // Output: { mnemonic, keyPair, generatedWallet }
-    ```
+   ```
 ## CLI commands
 
-These features are currently available via the command line. Useful for creating and managing wallets, sending transactions, and testing addresses. 
+These features are currently available only via the command line. Useful for creating and managing wallets, sending transactions, and testing addresses. 
 
 To use them, clone the repository:
 
