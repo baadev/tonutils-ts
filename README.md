@@ -251,11 +251,25 @@ See the [README](./wallet_popup/README.md) file in the `wallet_popup` directory 
 
 ## How to Contribute
 
-We welcome contributions from the community! If you're interested in helping improve TonUtils, here are ways you can contribute:
+We welcome your contributions! Here’s how you can help improve TonUtils:
 
-- **Reporting Bugs**: Open an issue to report a bug.
-- **Suggesting Enhancements**: Have ideas on how to make TonUtils better? Open an issue with your suggestions.
-- **Pull Requests**: Submit pull requests with bug fixes or new features.
+- **Report Bugs**: [Open an issue](https://github.com/baadev/tonutils-ts/issues/new).
+- **Suggest Enhancements**: Share your ideas [in an issue](https://github.com/baadev/tonutils-ts/issues/new) or via [Telegram group](https://t.me/tonutils_ts).
+- **Submit Pull Requests**:
+  - Fork the repo.
+  - Create a new branch:
+  
+     `git checkout -b feature/YourFeature`
+
+  - Commit your changes:
+  
+     `git commit -m 'Add some feature'`
+
+  - Push to your branch: 
+    
+    `git push origin feature/YourFeature`
+
+  - Open a pull request.
 
 ## License
 
